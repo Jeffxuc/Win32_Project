@@ -23,6 +23,7 @@
     <ProjectGuid>{F4957A9F-6D5D-4385-BA2F-6E81B6140CEB}</ProjectGuid>
     <RootNamespace>P20MultiThreads</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <ProjectName>P20_0_MultiThreads</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
