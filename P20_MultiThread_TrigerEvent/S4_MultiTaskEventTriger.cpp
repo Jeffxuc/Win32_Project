@@ -135,7 +135,7 @@ LRESULT APIENTRY WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
         /********** TODO: the customized content for drawing. ************/
         GetClientRect(hwnd, &rect);
-        wsprintf(szBuffer, szMessage[iStatus], REP, lTime);
+        int countNum = wsprintf(szBuffer, szMessage[iStatus], REP, lTime);
         DrawText(hdc, szBuffer, -1, &rect, DT_SINGLELINE | DT_CENTER | DT_VCENTER);
 
         /*****************************************************************/
@@ -159,7 +159,7 @@ VOID MyThread01(PVOID pvoid)
     double a = 1.0;
     INT  i;
     LONG lTime;
-    volatile PPARAMS pParams;  //避免被编译器优化。
+    volatile PPARAMS pParams;  //因为会在外部进行修改，所以要避免被编译器优化。
     pParams = (PPARAMS)pvoid;
 
     lTime = GetCurrentTime();  //返回当前时间，单位为毫秒
