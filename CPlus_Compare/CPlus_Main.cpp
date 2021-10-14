@@ -18,6 +18,10 @@ typedef struct MyStruct
 
 GT gt = { 1,2,{3,4,5} };
 
+
+// Declare functions.
+VOID SwitchFunc(int num);
+
 int main()
 {
     /*const char *str1 = "这个图片";
@@ -54,8 +58,43 @@ int main()
     wf << "UTF8 Test 图片中文数据 vvvv.\n" << endl;
     wf.close();
 
-
+    int inputNum = 0;
+    // 如果输入不是int类型将会跳出循环。
+    while (cin >> inputNum)
+    {
+        SwitchFunc(inputNum);
+    }
+    
+   
 
 
     system("pause");
+}
+
+VOID SwitchFunc(int num)
+{
+    //必须要将该变量定义成static，否则每次都会被初始化成FALSE,导致前一次的设置无法对后一次生效
+    static BOOL status = FALSE; 
+    
+    switch (num)
+    {
+    case 1:
+        status = FALSE;
+        break;
+    case 2:
+        status = FALSE;
+        break;
+    case 3:
+        status = TRUE;
+        break;
+    case 4:
+        if (status)
+        {
+            cout << "status is true" << endl;
+        }
+        break;
+    default:
+        break;
+    }
+
 }
