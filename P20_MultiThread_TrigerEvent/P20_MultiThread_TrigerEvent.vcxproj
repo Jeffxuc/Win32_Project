@@ -146,6 +146,9 @@
   <ItemGroup>
     <ClCompile Include="S4_MultiTaskEventTriger.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="S4_MultiTaskEventTriger.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

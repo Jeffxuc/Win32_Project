@@ -4,6 +4,9 @@
 #include <iostream>
 #include <fstream>
 #include<locale>
+#include <sstream>
+
+#define T_002
 
 using namespace std;
 
@@ -21,12 +24,15 @@ GT gt = { 1,2,{3,4,5} };
 
 // Declare functions.
 VOID SwitchFunc(int num);
+VOID SwitchFunc01(int num);
 
 int main()
 {
+#ifdef T_001
+
     /*const char *str1 = "这个图片";
     cout << *str1 << endl;*/
-    
+
     char str2[] = "图片";
     cout << str2 << endl;
 
@@ -41,8 +47,8 @@ int main()
 
     const CHAR *p1;
     const WCHAR *p2;
-    p1= str5.c_str();
-    p2= str51.c_str();
+    p1 = str5.c_str();
+    p2 = str51.c_str();
 
     string str6 = "ts";
     wstring str61 = L"ts";
@@ -64,11 +70,80 @@ int main()
     {
         SwitchFunc(inputNum);
     }
+
+#endif // T_001
+
+
+
+#ifdef T_002
+
+    UCHAR* TransferBuffer = new UCHAR[512]{ 0 };
+    TransferBuffer[0] = 106;
+    TransferBuffer[1] = 107;
+    TransferBuffer[2] = 1;
+    TransferBuffer[3] = 67;
+    TransferBuffer[4] = 16;
+    TransferBuffer[5] = 0;
+
+    int res1 = TransferBuffer[2];
+    int res2 = TransferBuffer[5];
+
+    char* tsbf = new char[512]{ 0 };
+    tsbf = reinterpret_cast<char*>(TransferBuffer);
+    std::string resStr(tsbf,5);
+
+    // 当字符值为char时。
+    std::string chStr01;
+    std::stringstream sstream;
+    for (int i = 0; i < 8; ++i)
+    {
+        sstream << TransferBuffer[i];
+    }
+
+    chStr01 = sstream.str();
+
+    UCHAR arr1[64] = { 0xFF,0x01,0x00 };
+    int s1 = arr1[4];
+    
+    UCHAR uch = '0';
+
+    
+
+
+
+#endif // T_002
+
     
    
 
 
     system("pause");
+}
+
+VOID SwitchFunc01(int num)
+{
+    string str = "";
+    while (true)
+    {
+        switch (num)
+        {
+        case 1:
+            str = "case 01";
+            break;
+        case 2:
+            str = "case 02";
+            break;
+        case 3:
+            str = "case 03";
+            goto newRes;
+        default:
+            goto newRes;
+        }
+
+    }
+
+newRes:
+    int i = 100;
 }
 
 VOID SwitchFunc(int num)
