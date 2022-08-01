@@ -21,6 +21,19 @@ int main()
     char *p1 = "Hello";
     wchar_t *p2 = L"Hello";
 
+    char p5[] = "hello";
+
+    char* pStr1 = "hello world";
+    char pStr2[] = "hello world";
+
+    signed char* pStr3 = "hello";
+    unsigned char* pStr4 = "hello";
+
+    char* s1 = "hello world";
+    signed char* s2 = "hello world";
+    unsigned char* s3 = "hello world";
+
+
     char *p3;
     p3 = &Ps;
     int v = ver;
